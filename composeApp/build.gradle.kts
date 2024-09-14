@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.google.map.secrets)
 }
 
 kotlin {
@@ -39,17 +40,32 @@ kotlin {
 //            Navigation
             implementation(libs.androidx.navigation.compose)
 
+//            Google maps
+            implementation(libs.google.maps.compose)
+            implementation(libs.google.maps.compose.utils)
+            implementation(libs.google.maps.compose.widgets)
+
+//            Open Street Maps
+            implementation(libs.openstreetmap)
+
+//            Map My India
+            implementation(libs.mapmyindia)
+
 //            Koin DI
             implementation(libs.koin.android)
             implementation(libs.koin.androidx.compose)
 
 //            Shared project hosting our common code
             implementation(projects.shared)
+
+//            UI components for Android
+            implementation(projects.ui)
         }
     }
 }
 
 android {
+
     namespace = "io.github.dkexception.kmm.aqiapp"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
@@ -80,8 +96,16 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     dependencies {
         debugImplementation(compose.uiTooling)
     }
+}
+
+secrets {
+    propertiesFileName = "local.properties"
+    defaultPropertiesFileName = "local.defaults.properties"
+    ignoreList.add("keyToIgnore") // Ignore the key "keyToIgnore"
+    ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
 }

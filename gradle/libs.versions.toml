@@ -1,7 +1,7 @@
 [versions]
 
 # Gradle
-agp = "8.2.2"
+agp = "8.6.0"
 
 # Kotlin
 kotlin = "2.0.20"
@@ -21,7 +21,7 @@ androidx-activityCompose = "1.9.1"
 compose-plugin = "1.7.0-alpha02"
 
 # Android Navigation
-androidxNavigation = "2.7.7"
+androidxNavigation = "2.8.0"
 
 # Koin
 koin = "3.6.0-Beta4"
@@ -41,7 +41,7 @@ openStreetMap = "6.1.18"
 mapMyIndia = "8.2.0"
 
 # Coil
-coilCompose = "2.2.2"
+coilCompose = "2.6.0"
 
 # Testing
 junit = "4.13.2"

@@ -1,13 +1,15 @@
 package io.github.dkexception.ui.inputs
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import io.github.dkexception.ui.R
+import aqiappkmm.ui.generated.resources.Res
+import aqiappkmm.ui.generated.resources.ic_eye
+import aqiappkmm.ui.generated.resources.ic_key
+import org.jetbrains.compose.resources.DrawableResource
 
 @Composable
 fun DXPasswordField(
@@ -19,7 +21,7 @@ fun DXPasswordField(
     isSingleLine: Boolean = false,
     optionalSupportingText: String? = null,
     optionalPlaceholderText: String? = null,
-    @DrawableRes optionalLeadingIcon: Int? = null,
+    optionalLeadingIcon: DrawableResource? = null,
     optionalKeyboardOptions: KeyboardOptions? = null,
     optionalKeyboardActions: KeyboardActions? = null,
     onChange: (String) -> Unit
@@ -34,7 +36,7 @@ fun DXPasswordField(
     optionalSupportingText = optionalSupportingText,
     optionalPlaceholderText = optionalPlaceholderText,
     optionalLeadingIcon = optionalLeadingIcon,
-    optionalTrailingIcon = R.drawable.ic_eye,
+    optionalTrailingIcon = Res.drawable.ic_eye,
     optionalKeyboardOptions = optionalKeyboardOptions,
     optionalKeyboardActions = optionalKeyboardActions,
     onChange = onChange
@@ -54,7 +56,7 @@ private fun DXPasswordFieldWithPasswordPreview() = DXPasswordField(
     text = "password",
     optionalPlaceholderText = "Your password here",
     modifier = Modifier.fillMaxWidth(),
-    optionalLeadingIcon = R.drawable.ic_key
+    optionalLeadingIcon = Res.drawable.ic_key
 ) {}
 
 @Preview
@@ -63,7 +65,7 @@ private fun DXPasswordFieldWithErrorPreview() = DXPasswordField(
     text = "passw",
     optionalPlaceholderText = "Your password",
     modifier = Modifier.fillMaxWidth(),
-    optionalLeadingIcon = R.drawable.ic_key,
+    optionalLeadingIcon = Res.drawable.ic_key,
     isError = true,
     optionalSupportingText = "Password is too short!"
 ) {}

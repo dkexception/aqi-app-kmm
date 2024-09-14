@@ -5,6 +5,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import io.github.dkexception.ui.theme.DXTheme
 
 @Composable
 fun DXAlertDialog(
@@ -41,9 +42,11 @@ fun DXAlertDialog(
 
 @Preview
 @Composable
-private fun DXAlertDialogPreview() = DXAlertDialog(
-    title = "Are you sure?",
-    optionalSubtitle = "Logging out will clear your saved places and all data.",
-    primaryButtonTextToActionPair = "Log Out" to {},
-    optionalSecondaryButtonTextToActionPair = "Cancel" to {}
-) {}
+private fun DXAlertDialogPreview() = DXTheme {
+    DXAlertDialog(
+        title = "Are you sure?",
+        optionalSubtitle = "Logging out will clear your saved places and all data.",
+        primaryButtonTextToActionPair = "Log Out" to {},
+        optionalSecondaryButtonTextToActionPair = "Cancel" to {}
+    ) {}
+}

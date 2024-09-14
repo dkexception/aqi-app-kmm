@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import io.github.dkexception.ui.theme.DXCardValues
 import io.github.dkexception.ui.theme.DXColors
+import io.github.dkexception.ui.theme.DXTheme
 import io.github.dkexception.ui.utils.semanticModifier
 
 @Composable
@@ -50,12 +51,14 @@ fun DXCard(
 
 @Preview
 @Composable
-private fun DXCardPreview() = DXCard(
-    Modifier.fillMaxWidth()
-) {
-    Text(
-        text = "Hello!",
-        modifier = Modifier.padding(16.dp),
-        color = DXColors.text.dark
-    )
+private fun DXCardPreview() = DXTheme {
+    DXCard(
+        Modifier.fillMaxWidth()
+    ) {
+        Text(
+            text = "Hello!",
+            modifier = Modifier.padding(16.dp),
+            color = DXColors.text.dark
+        )
+    }
 }

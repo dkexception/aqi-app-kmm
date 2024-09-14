@@ -1,0 +1,24 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml:2:1-12:12
+INJECTED from /Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml:2:1-12:12
+	package
+		INJECTED from /Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml:4:5-10:19
+meta-data#com.google.android.geo.API_KEY
+ADDED from /Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml:6:9-8:47
+	android:value
+		ADDED from /Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml:8:13-44
+	android:name
+		ADDED from /Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml:7:13-58
+uses-sdk
+INJECTED from /Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml
+INJECTED from /Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml

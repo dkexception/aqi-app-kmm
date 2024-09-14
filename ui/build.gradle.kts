@@ -2,11 +2,16 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.jetbrainsCompose)
-    alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.google.map.secrets)
+    id("org.jetbrains.kotlin.multiplatform") version ("2.0.20")
+    id("com.android.library") version ("8.6.0")
+    id("org.jetbrains.compose") version ("1.7.0-alpha02")
+    id("org.jetbrains.kotlin.plugin.compose") version ("2.0.20")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version ("2.0.1")
+}
+
+compose.resources {
+    publicResClass = true
+    generateResClass = auto
 }
 
 kotlin {
@@ -29,28 +34,20 @@ kotlin {
             implementation(compose.material)
             implementation(compose.material3)
             implementation(compose.ui)
+            implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
 //            Navigation
-            implementation(libs.androidx.navigation.compose)
+            //noinspection UseTomlInstead
+            implementation("androidx.navigation:navigation-compose:2.8.0")
 
 //            Coil
-            implementation(libs.coil.compose)
+            //noinspection UseTomlInstead
+            implementation("io.coil-kt:coil-compose:2.6.0")
+        }
 
-//            Google maps
-            implementation(libs.google.maps.compose)
-            implementation(libs.google.maps.compose.utils)
-            implementation(libs.google.maps.compose.widgets)
-
-//            Open Street Maps
-            implementation(libs.openstreetmap)
-
-//            Map My India
-            implementation(libs.mapmyindia)
-
-//            Koin DI
-            implementation(libs.koin.android)
-            implementation(libs.koin.androidx.compose)
+        commonMain.dependencies {
+            implementation(compose.components.resources)
         }
     }
 }
@@ -58,15 +55,15 @@ kotlin {
 android {
 
     namespace = "io.github.dkexception.ui"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    compileSdk = 35
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    sourceSets["main"].res.srcDirs("src/main/res")
+    sourceSets["main"].res.srcDirs("src/androidMain/res")
 
     defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
+        minSdk = 26
         lint {
-            targetSdk = libs.versions.android.targetSdk.get().toInt()
+            targetSdk = 35
         }
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -90,16 +87,8 @@ android {
     }
     buildFeatures {
         compose = true
-        buildConfig = true
     }
     dependencies {
         debugImplementation(compose.uiTooling)
     }
-}
-
-secrets {
-    propertiesFileName = "local.properties"
-    defaultPropertiesFileName = "local.defaults.properties"
-    ignoreList.add("keyToIgnore") // Ignore the key "keyToIgnore"
-    ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
 }

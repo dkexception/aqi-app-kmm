@@ -1,0 +1,17 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.github.dkexception.ui" >
+4
+5    <uses-sdk android:minSdkVersion="26" />
+6
+7    <application>
+7-->/Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml:4:5-10:19
+8        <meta-data
+8-->/Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml:6:9-8:47
+9            android:name="com.google.android.geo.API_KEY"
+9-->/Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml:7:13-58
+10            android:value="${MAPS_API_KEY}" />
+10-->/Users/dhanesh/Code/KMMProjects/AQIAppKMM/ui/src/androidMain/AndroidManifest.xml:8:13-44
+11    </application>
+12
+13</manifest>

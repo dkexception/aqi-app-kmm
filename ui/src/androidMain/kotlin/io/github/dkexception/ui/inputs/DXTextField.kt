@@ -1,6 +1,5 @@
 package io.github.dkexception.ui.inputs
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -17,16 +16,21 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.github.dkexception.ui.R
+import aqiappkmm.ui.generated.resources.Res
+import aqiappkmm.ui.generated.resources.ic_account
+import aqiappkmm.ui.generated.resources.ic_eye
+import aqiappkmm.ui.generated.resources.ic_key
+import aqiappkmm.ui.generated.resources.ic_mail
 import io.github.dkexception.ui.theme.DXColors
 import io.github.dkexception.ui.theme.regular
 import io.github.dkexception.ui.theme.textField
 import io.github.dkexception.ui.theme.textFieldPlaceholder
+import org.jetbrains.compose.resources.DrawableResource
+import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun DXTextField(
@@ -39,8 +43,8 @@ fun DXTextField(
     isPasswordField: Boolean = false,
     optionalSupportingText: String? = null,
     optionalPlaceholderText: String? = null,
-    @DrawableRes optionalLeadingIcon: Int? = null,
-    @DrawableRes optionalTrailingIcon: Int? = null,
+    optionalLeadingIcon: DrawableResource? = null,
+    optionalTrailingIcon: DrawableResource? = null,
     optionalKeyboardOptions: KeyboardOptions? = null,
     optionalKeyboardActions: KeyboardActions? = null,
     onChange: (String) -> Unit
@@ -58,7 +62,9 @@ fun DXTextField(
                 }
             ) {
                 Icon(
-                    painter = painterResource(id = optionalTrailingIcon ?: R.drawable.ic_eye),
+                    painter = painterResource(
+                        resource = optionalTrailingIcon ?: Res.drawable.ic_eye
+                    ),
                     contentDescription = null
                 )
             }
@@ -66,7 +72,7 @@ fun DXTextField(
     } else if (optionalTrailingIcon != null) {
         {
             Icon(
-                painter = painterResource(id = optionalTrailingIcon),
+                painter = painterResource(resource = optionalTrailingIcon),
                 contentDescription = null
             )
         }
@@ -89,7 +95,7 @@ fun DXTextField(
         leadingIcon = optionalLeadingIcon?.let {
             {
                 Icon(
-                    painter = painterResource(id = it),
+                    painter = painterResource(resource = it),
                     contentDescription = null
                 )
             }
@@ -166,7 +172,7 @@ fun DXTextField(
 private fun DXTextFieldEmptyPreview() = DXTextField(
     text = "",
     optionalPlaceholderText = "Your name here",
-    optionalTrailingIcon = R.drawable.ic_account,
+    optionalTrailingIcon = Res.drawable.ic_account,
     modifier = Modifier.fillMaxWidth()
 ) {}
 
@@ -176,7 +182,7 @@ private fun DXTextFieldWithTextPreview() = DXTextField(
     text = "dkexception@gmail.com",
     optionalPlaceholderText = "Your email here",
     modifier = Modifier.fillMaxWidth(),
-    optionalLeadingIcon = R.drawable.ic_mail
+    optionalLeadingIcon = Res.drawable.ic_mail
 ) {}
 
 @Preview
@@ -185,7 +191,7 @@ private fun DXTextFieldWithErrorTextPreview() = DXTextField(
     text = "dkexception@gmail",
     optionalPlaceholderText = "Enter your email",
     modifier = Modifier.fillMaxWidth(),
-    optionalLeadingIcon = R.drawable.ic_key,
+    optionalLeadingIcon = Res.drawable.ic_key,
     isError = true,
     optionalSupportingText = "Please enter a valid email!"
 ) {}

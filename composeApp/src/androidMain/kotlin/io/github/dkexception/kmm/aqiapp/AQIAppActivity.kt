@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.MaterialTheme
 import androidx.navigation.compose.rememberNavController
 import io.github.dkexception.kmm.aqiapp.navigation.AndroidNavigator
 import io.github.dkexception.kmm.aqiapp.navigation.Navigator
 import io.github.dkexception.kmm.aqiapp.snackbar.ISnackbarHelper
+import io.github.dkexception.ui.theme.DXTheme
 import org.koin.android.ext.android.inject
 
 class AQIAppActivity : ComponentActivity() {
@@ -29,7 +29,7 @@ class AQIAppActivity : ComponentActivity() {
 
             (navigator as? AndroidNavigator)?.setNavController(navController)
 
-            MaterialTheme {
+            DXTheme {
                 App(
                     snackbarHelper = snackbarHelper,
                     navHostController = navController
