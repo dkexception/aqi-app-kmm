@@ -1,0 +1,113 @@
+[versions]
+
+# Gradle
+agp = "8.2.2"
+
+# Kotlin
+kotlin = "2.0.20"
+serialization = "1.7.1"
+
+# Android reference integers
+android-compileSdk = "35"
+android-minSdk = "26"
+android-targetSdk = "35"
+
+# Core & Lifecycle
+androidx-core-ktx = "1.13.1"
+androidx-lifecycle = "2.8.0"
+
+# Compose
+androidx-activityCompose = "1.9.1"
+compose-plugin = "1.7.0-alpha02"
+
+# Android Navigation
+androidxNavigation = "2.7.7"
+
+# Koin
+koin = "3.6.0-Beta4"
+koinCMP = "1.2.0-Beta4"
+
+# Ktor
+ktor = "2.3.12"
+
+# Google maps
+googleMapsCompose = "4.3.3"
+googleMapsSecrets = "2.0.1"
+
+# Open Street Maps
+openStreetMap = "6.1.18"
+
+# Map my India
+mapMyIndia = "8.2.0"
+
+# Coil
+coilCompose = "2.2.2"
+
+# Testing
+junit = "4.13.2"
+androidx-espresso-core = "3.6.1"
+androidx-test-junit = "1.2.1"
+
+[libraries]
+
+# Activity & Compose
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-viewmodel-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+
+# Navigation
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
+
+# Koin
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinCMP" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koinCMP" }
+
+# Ktor
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+
+# Google maps
+google-maps-compose = { group = "com.google.maps.android", name = "maps-compose", version.ref = "googleMapsCompose" }
+google-maps-compose-utils = { group = "com.google.maps.android", name = "maps-compose-utils", version.ref = "googleMapsCompose" }
+google-maps-compose-widgets = { group = "com.google.maps.android", name = "maps-compose-widgets", version.ref = "googleMapsCompose" }
+
+# Open Street Maps
+openstreetmap = { group = "org.osmdroid", name = "osmdroid-android", version.ref = "openStreetMap" }
+
+# Map my India
+mapmyindia = { group = "com.mappls.sdk", name = "mappls-android-sdk", version.ref = "mapMyIndia" }
+
+# Coil
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilCompose" }
+
+# Testing
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
+androidx-test-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-junit" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-espresso-core" }
+
+[plugins]
+
+# Android
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+
+# Compose
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
+# Kotlin
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+# Google maps secrets plugin
+google-map-secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "googleMapsSecrets" }
