@@ -1,4 +1,4 @@
-package io.github.dkexception.kmm.aqiapp.utils
+package io.github.dkexception.ui.system
 
 import android.graphics.Color
 import androidx.activity.ComponentActivity
@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import io.github.dkexception.ui.theme.DXColors
 
 /**
  * Sets the relevant foreground color to the system bars i.e. Status & Navigation bars
@@ -24,22 +25,10 @@ fun ComponentActivity.SetSystemBarColors() {
                 Color.TRANSPARENT,
             ) { isSystemInDarkTheme },
             navigationBarStyle = SystemBarStyle.auto(
-                lightScrim,
-                darkScrim,
+                DXColors.lightScrim,
+                DXColors.darkScrim,
             ) { isSystemInDarkTheme },
         )
         onDispose {}
     }
 }
-
-/**
- * The default light scrim, as defined by androidx and the platform:
- * https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:activity/activity/src/main/java/androidx/activity/EdgeToEdge.kt;l=35-38;drc=27e7d52e8604a080133e8b842db10c89b4482598
- */
-val lightScrim = Color.argb(0xe6, 0xFF, 0xFF, 0xFF)
-
-/**
- * The default dark scrim, as defined by androidx and the platform:
- * https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:activity/activity/src/main/java/androidx/activity/EdgeToEdge.kt;l=40-44;drc=27e7d52e8604a080133e8b842db10c89b4482598
- */
-val darkScrim = Color.argb(0x80, 0x1b, 0x1b, 0x1b)
