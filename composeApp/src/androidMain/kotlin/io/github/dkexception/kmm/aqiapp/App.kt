@@ -12,8 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import io.github.dkexception.kmm.aqiapp.di.initKoin
 import io.github.dkexception.kmm.aqiapp.navigation.AQIAppNavHost
 import io.github.dkexception.kmm.aqiapp.snackbar.ISnackbarHelper
 import io.github.dkexception.kmm.aqiapp.utils.ObserveAsEvents
@@ -71,4 +73,17 @@ private fun AppContent(
         navHostController = navHostController,
         modifier = Modifier.padding(innerPadding)
     )
+}
+
+@Preview(showSystemUi = true)
+@Composable
+private fun AppPreview() {
+
+    initKoin()
+
+    val snackbarHostState = remember {
+        SnackbarHostState()
+    }
+
+    AppContent(snackbarHostState, rememberNavController())
 }

@@ -2,7 +2,6 @@ package io.github.dkexception.kmm.aqiapp.navigation
 
 import androidx.navigation.NavHostController
 import androidx.navigation.navOptions
-import io.github.dkexception.kmm.aqiapp.utils.Constants
 
 class AndroidNavigator : Navigator {
 
@@ -22,9 +21,27 @@ class AndroidNavigator : Navigator {
         }
     }
 
+    override fun navigateWithObject(obj: Any) {
+        try {
+            navController?.navigate(obj)
+        } catch (e: IllegalArgumentException) {
+            handleIllegalNavigation()
+        }
+    }
+
     override fun navigateClearingStack(route: String) {
         try {
             navController?.navigate(route) {
+                popUpTo(0)
+            }
+        } catch (e: IllegalArgumentException) {
+            handleIllegalNavigation()
+        }
+    }
+
+    override fun navigateClearingStackWithObject(obj: Any) {
+        try {
+            navController?.navigate(obj) {
                 popUpTo(0)
             }
         } catch (e: IllegalArgumentException) {
@@ -61,6 +78,6 @@ class AndroidNavigator : Navigator {
     }
 
     override fun handleIllegalNavigation() {
-        navController?.navigate(Constants.NavigationRoutes.SCREEN_404)
+        navController?.navigate(OtherRoutes.Invalid404)
     }
 }

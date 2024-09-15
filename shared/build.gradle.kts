@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -27,6 +28,12 @@ kotlin {
     }
 
     sourceSets {
+
+        androidMain.dependencies {
+//            Navigation
+            implementation(libs.androidx.navigation.compose)
+        }
+
         commonMain.dependencies {
 
 //            Lifecycle
@@ -38,6 +45,9 @@ kotlin {
             api(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
+
+//            Kotlin
+            implementation(libs.kotlinx.serialization)
         }
     }
 }

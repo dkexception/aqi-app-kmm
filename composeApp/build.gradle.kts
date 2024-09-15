@@ -55,6 +55,9 @@ kotlin {
             implementation(libs.koin.android)
             implementation(libs.koin.androidx.compose)
 
+//            Splash Screen
+            implementation(libs.splash.screen)
+
 //            Shared project hosting our common code
             implementation(projects.shared)
 

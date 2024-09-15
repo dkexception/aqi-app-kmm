@@ -14,8 +14,16 @@ class IOSNavigator : Navigator {
         mNavigator?.navigate(route)
     }
 
+    override fun navigateWithObject(obj: Any) {
+        mNavigator?.navigateWithObject(obj)
+    }
+
     override fun navigateClearingStack(route: String) {
         mNavigator?.navigateClearingStack(route)
+    }
+
+    override fun navigateClearingStackWithObject(obj: Any) {
+        mNavigator?.navigateClearingStackWithObject(obj)
     }
 
     override fun navigatePoppingCurrent(route: String) {

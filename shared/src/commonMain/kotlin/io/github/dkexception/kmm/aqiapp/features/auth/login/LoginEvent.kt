@@ -1,0 +1,12 @@
+package io.github.dkexception.kmm.aqiapp.features.auth.login
+
+sealed class LoginEvent {
+
+    data class OnNameChanged(val newName: String) : LoginEvent()
+
+    data class OnEmailChanged(val newEmailId: String) : LoginEvent()
+
+    data class OnPasswordChanged(val newPassword: String) : LoginEvent()
+
+    data object OnLoginClicked : LoginEvent()
+}

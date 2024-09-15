@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="Theme.AQIAppKMM" parent="Theme.AppCompat.DayNight.NoActionBar">
+
+        <!--Primary color-->
+        <item name="colorPrimary">#FF1882FF</item>
+
+        <!-- Status bar color-->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+</resources>

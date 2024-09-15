@@ -6,11 +6,11 @@
     <application
         android:name=".AQIApplication"
         android:allowBackup="true"
+        android:enableOnBackInvokedCallback="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@android:style/Theme.Material.Light.NoActionBar">
+        android:supportsRtl="true">
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -19,7 +19,8 @@
         <activity
             android:name=".AQIAppActivity"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|mnc|colorMode|density|fontScale|fontWeightAdjustment|keyboard|layoutDirection|locale|mcc|navigation|smallestScreenSize|touchscreen|uiMode"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AQIAppKMM">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

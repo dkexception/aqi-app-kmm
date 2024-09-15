@@ -6,7 +6,11 @@ interface Navigator {
 
     fun navigate(route: String)
 
+    fun navigateWithObject(obj: Any)
+
     fun navigateClearingStack(route: String)
+
+    fun navigateClearingStackWithObject(obj: Any)
 
     fun navigatePoppingCurrent(route: String)
 
