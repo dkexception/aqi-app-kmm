@@ -2,9 +2,13 @@ package io.github.dkexception.kmm.aqiapp.di
 
 import io.github.dkexception.kmm.aqiapp.features.auth.login.ILoginViewModel
 import io.github.dkexception.kmm.aqiapp.features.auth.login.LoginViewModel
+import io.github.dkexception.kmm.aqiapp.features.more.IMoreListViewModel
+import io.github.dkexception.kmm.aqiapp.features.more.MoreListViewModel
 import io.github.dkexception.kmm.aqiapp.features.onboarding.guide.GuideViewModel
 import io.github.dkexception.kmm.aqiapp.features.onboarding.guide.IGuideViewModel
 import io.github.dkexception.kmm.aqiapp.features.onboarding.welcome.WelcomeViewModel
+import io.github.dkexception.kmm.aqiapp.features.scale.AQIScaleViewModel
+import io.github.dkexception.kmm.aqiapp.features.scale.IAQIScaleViewModel
 import io.github.dkexception.kmm.aqiapp.snackbar.ISnackbarHelper
 import io.github.dkexception.kmm.aqiapp.snackbar.SnackbarHelper
 import io.github.dkexception.kmm.aqiapp.validators.ISingleStringValidator
@@ -51,4 +55,8 @@ val sharedModule = module {
             passwordValidator = pass
         )
     }.bind<ILoginViewModel>()
+
+    viewModelOf(::AQIScaleViewModel).bind<IAQIScaleViewModel>()
+
+    viewModelOf(::MoreListViewModel).bind<IMoreListViewModel>()
 }

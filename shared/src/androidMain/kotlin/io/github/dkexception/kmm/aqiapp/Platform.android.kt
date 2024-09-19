@@ -2,8 +2,8 @@ package io.github.dkexception.kmm.aqiapp
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.util.Log
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -13,7 +13,13 @@ class AndroidPlatform : Platform, KoinComponent {
 
     private val context: Context by inject()
 
-    override val name: String = "Android ${Build.VERSION.SDK_INT}"
+    override val appName: String = "AQI App"
+
+    override val version: String = try {
+        context.packageManager.getPackageInfo(context.packageName, 0)?.versionName ?: "-"
+    } catch (e: PackageManager.NameNotFoundException) {
+        "-"
+    }
 
     override fun getRandomUUID(): String = UUID.randomUUID().toString()
 
@@ -27,6 +33,8 @@ class AndroidPlatform : Platform, KoinComponent {
         }
         context.startActivity(intent)
     }
+
+    override fun getSystemCurrentTimeMs(): String = System.currentTimeMillis().toString()
 }
 
 actual fun getPlatform(): Platform = AndroidPlatform()

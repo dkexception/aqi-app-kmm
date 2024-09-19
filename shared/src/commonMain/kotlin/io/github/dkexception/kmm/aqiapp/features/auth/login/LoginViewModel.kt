@@ -4,6 +4,7 @@ import io.github.dkexception.kmm.aqiapp.base.BaseViewModel
 import io.github.dkexception.kmm.aqiapp.flow.KMMStateFlow
 import io.github.dkexception.kmm.aqiapp.flow.common
 import io.github.dkexception.kmm.aqiapp.navigation.HomeRoutes
+import io.github.dkexception.kmm.aqiapp.navigation.MoreRoutes
 import io.github.dkexception.kmm.aqiapp.utils.UIText
 import io.github.dkexception.kmm.aqiapp.validators.ISingleStringValidator
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -80,7 +81,7 @@ class LoginViewModel(
 //                )
 
                 // And navigate to the dashboard
-                navigator.navigateClearingStackWithObject(HomeRoutes.HomeMain)
+                navigator.navigateClearingStackWithObject(MoreRoutes.MoreList)
             }
         }
     }

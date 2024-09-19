@@ -31,6 +31,12 @@ struct AppContent: View {
         ZStack {
             
             NavigationStack(path: $navigator.path) {
+                WelcomeScreen()
+            }
+            .navigationDestination(for: OnboardingRoutes.OnboardingGuide.self) { _ in
+                GuideScreen()
+            }
+            .navigationDestination(for: OtherRoutes.Invalid404.self) { obj in
                 Screen404()
             }
             

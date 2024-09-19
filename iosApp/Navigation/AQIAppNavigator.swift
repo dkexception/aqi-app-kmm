@@ -14,7 +14,7 @@ class AQIAppNavigator: Navigator, ObservableObject {
     
     let isAndroid: Bool = false
     
-    @Published var path: [String] = []
+    @Published var path: NavigationPath = NavigationPath()
     
     init() {
         (IOSHelpers().navigator as? IOSNavigator)?.setNavigator(navigator: self)
@@ -32,7 +32,7 @@ class AQIAppNavigator: Navigator, ObservableObject {
     
     func handleIllegalNavigation() {
         DispatchQueue.main.async {
-            self.path.append(Constants.NavigationRoutes().SCREEN_404)
+            self.path.append(OtherRoutes.Invalid404())
         }
     }
     
@@ -42,8 +42,21 @@ class AQIAppNavigator: Navigator, ObservableObject {
         }
     }
     
+    func navigateWithObject(obj: Any) {
+        DispatchQueue.main.async {
+            self.path.append(obj as! AnyHashable)
+        }
+    }
+    
     func navigateClearingStack(route: String) {
         
+    }
+    
+    func navigateClearingStackWithObject(obj: Any) {
+        DispatchQueue.main.async {
+            self.path.removeLast(self.path.count)
+            self.path.append(obj as! AnyHashable)
+        }
     }
     
     func navigatePoppingCurrent(route: String) {
