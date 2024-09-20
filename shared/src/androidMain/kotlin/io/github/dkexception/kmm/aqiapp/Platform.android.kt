@@ -5,6 +5,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.util.Log
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import io.github.dkexception.kmm.aqiapp.data.preferences.createDataStore
+import io.github.dkexception.kmm.aqiapp.data.preferences.dataStoreFileName
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import java.util.UUID
@@ -35,6 +39,10 @@ class AndroidPlatform : Platform, KoinComponent {
     }
 
     override fun getSystemCurrentTimeMs(): String = System.currentTimeMillis().toString()
+
+    override fun getPrefsDataStore(): DataStore<Preferences> = createDataStore(
+        producePath = { context.filesDir.resolve(dataStoreFileName).absolutePath }
+    )
 }
 
 actual fun getPlatform(): Platform = AndroidPlatform()

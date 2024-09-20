@@ -1,7 +1,15 @@
 package io.github.dkexception.kmm.aqiapp.di
 
+import io.github.dkexception.kmm.aqiapp.data.preferences.IPreferencesHelper
+import io.github.dkexception.kmm.aqiapp.data.preferences.PreferencesHelper
 import io.github.dkexception.kmm.aqiapp.features.auth.login.ILoginViewModel
 import io.github.dkexception.kmm.aqiapp.features.auth.login.LoginViewModel
+import io.github.dkexception.kmm.aqiapp.features.databank.DataBankMainViewModel
+import io.github.dkexception.kmm.aqiapp.features.databank.IDataBankMainViewModel
+import io.github.dkexception.kmm.aqiapp.features.details.AQIDetailsViewModel
+import io.github.dkexception.kmm.aqiapp.features.details.IAQIDetailsViewModel
+import io.github.dkexception.kmm.aqiapp.features.home.HomeViewModel
+import io.github.dkexception.kmm.aqiapp.features.home.IHomeViewModel
 import io.github.dkexception.kmm.aqiapp.features.more.IMoreListViewModel
 import io.github.dkexception.kmm.aqiapp.features.more.MoreListViewModel
 import io.github.dkexception.kmm.aqiapp.features.onboarding.guide.GuideViewModel
@@ -32,6 +40,8 @@ val sharedModule = module {
         CoroutineScope(Dispatchers.Default)
     }
 
+    singleOf(::PreferencesHelper).bind<IPreferencesHelper>()
+
     singleOf(::SnackbarHelper).bind<ISnackbarHelper>()
 
     single<ISingleStringValidator>(named("email")) {
@@ -51,11 +61,24 @@ val sharedModule = module {
         val pass = get<ISingleStringValidator>(named("password"))
 
         LoginViewModel(
+            preferencesHelper = get(),
             emailValidator = email,
             passwordValidator = pass
         )
     }.bind<ILoginViewModel>()
 
+    viewModelOf(::HomeViewModel).bind<IHomeViewModel>()
+
+    viewModel {
+
+        val email = get<ISingleStringValidator>(named("email"))
+
+        DataBankMainViewModel(
+            emailValidator = email
+        )
+    }.bind<IDataBankMainViewModel>()
+
+    viewModelOf(::AQIDetailsViewModel).bind<IAQIDetailsViewModel>()
     viewModelOf(::AQIScaleViewModel).bind<IAQIScaleViewModel>()
 
     viewModelOf(::MoreListViewModel).bind<IMoreListViewModel>()

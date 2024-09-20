@@ -10,6 +10,15 @@ import androidx.navigation.compose.composable
 import io.github.dkexception.kmm.aqiapp.features.auth.login.LoginScreen
 import io.github.dkexception.kmm.aqiapp.features.auth.login.LoginScreenState
 import io.github.dkexception.kmm.aqiapp.features.auth.login.LoginViewModel
+import io.github.dkexception.kmm.aqiapp.features.databank.DataBankMainScreen
+import io.github.dkexception.kmm.aqiapp.features.databank.DataBankMainScreenState
+import io.github.dkexception.kmm.aqiapp.features.databank.DataBankMainViewModel
+import io.github.dkexception.kmm.aqiapp.features.details.AQIDetailsScreen
+import io.github.dkexception.kmm.aqiapp.features.details.AQIDetailsScreenState
+import io.github.dkexception.kmm.aqiapp.features.details.AQIDetailsViewModel
+import io.github.dkexception.kmm.aqiapp.features.home.HomeScreen
+import io.github.dkexception.kmm.aqiapp.features.home.HomeScreenState
+import io.github.dkexception.kmm.aqiapp.features.home.HomeViewModel
 import io.github.dkexception.kmm.aqiapp.features.invalid.Screen404
 import io.github.dkexception.kmm.aqiapp.features.more.MoreListScreen
 import io.github.dkexception.kmm.aqiapp.features.more.MoreListScreenState
@@ -58,6 +67,12 @@ fun AQIAppNavHost(
         )
     }
 
+    composable<HomeRoutes.HomeMain> {
+        val viewModel: HomeViewModel = koinViewModel()
+        val state: HomeScreenState by viewModel.state.collectAsStateWithLifecycle()
+        HomeScreen(state = state, onEvent = viewModel::onEvent)
+    }
+
     composable<AQIDetailsRoutes.AQIScale> {
         val viewModel: AQIScaleViewModel = koinViewModel()
         val state: AQIScaleScreenState by viewModel.state.collectAsStateWithLifecycle()
@@ -66,7 +81,23 @@ fun AQIAppNavHost(
             onEvent = viewModel::onEvent
         )
     }
-    composable<AQIDetailsRoutes.AQIDetails> { }
+    composable<AQIDetailsRoutes.AQIDetails> {
+        val viewModel: AQIDetailsViewModel = koinViewModel()
+        val state: AQIDetailsScreenState by viewModel.state.collectAsStateWithLifecycle()
+        AQIDetailsScreen(
+            state = state,
+            onEvent = viewModel::onEvent
+        )
+    }
+
+    composable<DataBankRoutes.DataBankMain> {
+        val viewModel: DataBankMainViewModel = koinViewModel()
+        val state: DataBankMainScreenState by viewModel.state.collectAsStateWithLifecycle()
+        DataBankMainScreen(
+            state = state,
+            onEvent = viewModel::onEvent
+        )
+    }
 
     composable<MoreRoutes.MoreList> {
         val viewModel: MoreListViewModel = koinViewModel()

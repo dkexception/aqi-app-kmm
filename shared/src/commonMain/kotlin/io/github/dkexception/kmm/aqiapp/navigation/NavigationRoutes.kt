@@ -27,6 +27,13 @@ sealed class HomeRoutes {
 }
 
 @Serializable
+sealed class DataBankRoutes {
+
+    @Serializable
+    data object DataBankMain : DataBankRoutes()
+}
+
+@Serializable
 sealed class MoreRoutes {
 
     @Serializable

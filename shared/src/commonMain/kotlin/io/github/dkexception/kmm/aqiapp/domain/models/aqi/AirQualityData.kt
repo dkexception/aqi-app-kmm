@@ -1,4 +1,4 @@
-package io.github.dkexception.kmm.aqiapp.domain.models
+package io.github.dkexception.kmm.aqiapp.domain.models.aqi
 
 import io.github.dkexception.kmm.aqiapp.getPlatform
 

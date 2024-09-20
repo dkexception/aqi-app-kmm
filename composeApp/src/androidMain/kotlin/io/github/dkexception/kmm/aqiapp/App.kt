@@ -19,6 +19,7 @@ import io.github.dkexception.kmm.aqiapp.di.initKoin
 import io.github.dkexception.kmm.aqiapp.navigation.AQIAppNavHost
 import io.github.dkexception.kmm.aqiapp.snackbar.ISnackbarHelper
 import io.github.dkexception.kmm.aqiapp.utils.ObserveAsEvents
+import io.github.dkexception.ui.theme.DXTheme
 import kotlinx.coroutines.launch
 
 @Composable
@@ -75,9 +76,9 @@ private fun AppContent(
     )
 }
 
-@Preview(showSystemUi = true)
+@Preview
 @Composable
-private fun AppPreview() {
+private fun AppPreview() = DXTheme {
 
     initKoin()
 

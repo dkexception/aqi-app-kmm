@@ -48,6 +48,10 @@ kotlin {
 
 //            Kotlin
             implementation(libs.kotlinx.serialization)
+
+//            Data store
+            api(libs.androidx.datastore)
+            api(libs.androidx.datastore.preferences)
         }
     }
 }

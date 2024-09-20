@@ -46,6 +46,9 @@ coilCompose = "2.6.0"
 # Splash screen
 splashScreen = "1.0.0"
 
+# Data store
+androidx-datastore = "1.1.1"
+
 # Testing
 junit = "4.13.2"
 androidx-espresso-core = "3.6.1"
@@ -95,6 +98,10 @@ coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coi
 
 # Splash screen
 splash-screen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreen" }
+
+# Data store
+androidx-datastore = { group = "androidx.datastore", name = "datastore", version.ref = "androidx-datastore" }
+androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "androidx-datastore" }
 
 # Testing
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }

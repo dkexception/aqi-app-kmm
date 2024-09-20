@@ -1,10 +1,13 @@
 package io.github.dkexception.kmm.aqiapp.features.auth.login
 
+import androidx.lifecycle.viewModelScope
 import io.github.dkexception.kmm.aqiapp.base.BaseViewModel
+import io.github.dkexception.kmm.aqiapp.data.preferences.AQIPreferencesKey
+import io.github.dkexception.kmm.aqiapp.data.preferences.IPreferencesHelper
+import io.github.dkexception.kmm.aqiapp.domain.models.profile.AuthUserData
 import io.github.dkexception.kmm.aqiapp.flow.KMMStateFlow
 import io.github.dkexception.kmm.aqiapp.flow.common
 import io.github.dkexception.kmm.aqiapp.navigation.HomeRoutes
-import io.github.dkexception.kmm.aqiapp.navigation.MoreRoutes
 import io.github.dkexception.kmm.aqiapp.utils.UIText
 import io.github.dkexception.kmm.aqiapp.validators.ISingleStringValidator
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,9 +15,10 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 class LoginViewModel(
-//    private val dataStore: DataStore,
+    private val preferencesHelper: IPreferencesHelper,
     private val emailValidator: ISingleStringValidator,
     private val passwordValidator: ISingleStringValidator
 ) : BaseViewModel<LoginEvent>(), ILoginViewModel {
@@ -69,19 +73,20 @@ class LoginViewModel(
 
             LoginEvent.OnLoginClicked -> {
 
-                // Set user logged in by saving the auth data
-//                dataStore.saveString(
-//                    key = Constants.SP_KEY_USER_DATA,
-//                    value = Gson().toJson(
-//                        AuthUserData(
-//                            name = _state.value.enteredName,
-//                            emailId = _state.value.enteredEmailId.lowercase(Locale.getDefault())
-//                        )
-//                    )
-//                )
+                viewModelScope.launch {
 
-                // And navigate to the dashboard
-                navigator.navigateClearingStackWithObject(MoreRoutes.MoreList)
+                    // Set user logged in by saving the auth data
+                    preferencesHelper.putString(
+                        key = AQIPreferencesKey.SP_KEY_USER_DATA,
+                        value = AuthUserData(
+                            name = _state.value.enteredName,
+                            emailId = _state.value.enteredEmailId.lowercase()
+                        ).encodeToString()
+                    )
+
+                    // And navigate to the dashboard
+                    navigator.navigateClearingStackWithObject(HomeRoutes.HomeMain)
+                }
             }
         }
     }

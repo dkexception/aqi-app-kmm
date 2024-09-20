@@ -1,6 +1,6 @@
 package io.github.dkexception.kmm.aqiapp.features.details
 
-import io.github.dkexception.kmm.aqiapp.domain.models.AirQualityData
+import io.github.dkexception.kmm.aqiapp.domain.models.aqi.AirQualityData
 
 data class AQIDetailsScreenState(
 
