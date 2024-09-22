@@ -1,6 +1,6 @@
 ![AQI App's Overview](./images/aqi-app-cover.png)
 
-# AQI App
+# AQI App (Kotlin Multiplatform)
 * Air Quality Index app is an app showcasing all the latest Kotlin Multiplatform techniques implemented properly.
 * This app can be used as a reference or as a learning journey for Kotlin Multiplatform.
 
