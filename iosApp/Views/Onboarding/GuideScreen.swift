@@ -7,11 +7,18 @@
 //
 
 import SwiftUI
+import Shared
 
 struct GuideScreen: View {
+    
+    let guideViewModel: IGuideViewModel = IOSHelpers().provideGuideViewModel()
+    
     var body: some View {
-        Text("Guide")
-            .navigationBarBackButtonHidden(true)
+        
+        Button("Guide Next") {
+            guideViewModel.onEvent(guideEvent: GuideEvent.OnGetStartedClicked())
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

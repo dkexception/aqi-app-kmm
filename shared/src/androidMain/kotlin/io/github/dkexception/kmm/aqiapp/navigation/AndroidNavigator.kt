@@ -13,15 +13,7 @@ class AndroidNavigator : Navigator {
 
     override val isAndroid: Boolean = true
 
-    override fun navigate(route: String) {
-        try {
-            navController?.navigate(route)
-        } catch (e: IllegalArgumentException) {
-            handleIllegalNavigation()
-        }
-    }
-
-    override fun navigateWithObject(obj: Any) {
+    override fun navigate(obj: Any) {
         try {
             navController?.navigate(obj)
         } catch (e: IllegalArgumentException) {
@@ -29,17 +21,7 @@ class AndroidNavigator : Navigator {
         }
     }
 
-    override fun navigateClearingStack(route: String) {
-        try {
-            navController?.navigate(route) {
-                popUpTo(0)
-            }
-        } catch (e: IllegalArgumentException) {
-            handleIllegalNavigation()
-        }
-    }
-
-    override fun navigateClearingStackWithObject(obj: Any) {
+    override fun navigateClearingStack(obj: Any) {
         try {
             navController?.navigate(obj) {
                 popUpTo(0)
@@ -49,21 +31,21 @@ class AndroidNavigator : Navigator {
         }
     }
 
-    override fun navigatePoppingCurrent(route: String) {
+    override fun navigatePoppingCurrent(obj: Any) {
         try {
             navController?.popBackStack()
-            navController?.navigate(route)
+            navController?.navigate(obj)
         } catch (e: IllegalArgumentException) {
             handleIllegalNavigation()
         }
     }
 
-    override fun navigatePoppingUpto(route: String, popUptoRoute: String, inclusive: Boolean) {
+    override fun navigatePoppingUpto(obj: Any, popUptoObj: Any, inclusive: Boolean) {
         try {
             navController?.navigate(
-                route = route,
+                route = obj,
                 navOptions = navOptions {
-                    popUpTo(popUptoRoute) {
+                    popUpTo(popUptoObj) {
                         this.inclusive = inclusive
                     }
                 }
@@ -72,6 +54,8 @@ class AndroidNavigator : Navigator {
             handleIllegalNavigation()
         }
     }
+
+    override fun canGoBack(): Boolean = navController?.previousBackStackEntry != null
 
     override fun goBack() {
         navController?.popBackStack()

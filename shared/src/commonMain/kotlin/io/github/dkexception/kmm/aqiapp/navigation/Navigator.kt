@@ -4,17 +4,15 @@ interface Navigator {
 
     val isAndroid: Boolean
 
-    fun navigate(route: String)
+    fun navigate(obj: Any)
 
-    fun navigateWithObject(obj: Any)
+    fun navigateClearingStack(obj: Any)
 
-    fun navigateClearingStack(route: String)
+    fun navigatePoppingCurrent(obj: Any)
 
-    fun navigateClearingStackWithObject(obj: Any)
+    fun navigatePoppingUpto(obj: Any, popUptoObj: Any, inclusive: Boolean)
 
-    fun navigatePoppingCurrent(route: String)
-
-    fun navigatePoppingUpto(route: String, popUptoRoute: String, inclusive: Boolean)
+    fun canGoBack(): Boolean
 
     fun goBack()
 

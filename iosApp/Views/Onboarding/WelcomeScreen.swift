@@ -11,10 +11,17 @@ import Shared
 
 struct WelcomeScreen: View {
     
-    let welcomeViewModel = WelcomeViewModel()
-    
     var body: some View {
-        Text("Welcome!")
+        
+        ZStack {
+            
+            Image("welcome_bg")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
+            
+            Image("app_logo")
+        }
     }
 }
 

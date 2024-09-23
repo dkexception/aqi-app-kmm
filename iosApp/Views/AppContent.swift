@@ -18,7 +18,7 @@ struct AppContent: View {
     var isSnackbarVisible: Bool = false
     
     @StateObject
-    var adapter = KotlinAdapter<ISnackbarHelper, SnackbarEvent>(
+    var snackbarAdapter = KotlinAdapter<ISnackbarHelper, SnackbarEvent>(
         initialValue: SnackbarEvent(message: "", action: nil),
         createViewModel: { _ in
             IOSHelpers().snackbarHelper
@@ -26,23 +26,45 @@ struct AppContent: View {
         getState: { $0.events }
     )
     
+    @StateObject
+    var appContentViewModelAdapter = KotlinAdapter<IAppContentViewModel, AppContentScreenState>(
+        createViewModel: { _ in
+            IOSHelpers().provideAppContentViewModel()
+        },
+        getState: { $0.state }
+    )
+    
     var body: some View {
         
         ZStack {
             
-            NavigationStack(path: $navigator.path) {
+            if appContentViewModelAdapter.state.iOSShouldShowWelcomeScreen {
+                
                 WelcomeScreen()
-            }
-            .navigationDestination(for: OnboardingRoutes.OnboardingGuide.self) { _ in
-                GuideScreen()
-            }
-            .navigationDestination(for: OtherRoutes.Invalid404.self) { obj in
-                Screen404()
+            } else {
+                
+                NavigationStack(path: $navigator.path) {
+                    
+                    let postWelcomeDestination = appContentViewModelAdapter.state.postWelcomeDestination
+                    
+                    InitialScreen(
+                        postWelcomeDestination: postWelcomeDestination
+                    )
+                    .navigationDestination(for: AuthRoutes.AuthLogin.self) { _ in
+                        LoginScreen()
+                    }
+                    .navigationDestination(for: HomeRoutes.HomeMain.self) { _ in
+                        HomeScreen()
+                    }
+                    .navigationDestination(for: OtherRoutes.Invalid404.self) { _ in
+                        Screen404()
+                    }
+                }
             }
             
             if isSnackbarVisible {
                 
-                let event = adapter.state
+                let event = snackbarAdapter.state
                 
                 if !event.message.isEmpty || event.action != nil {
                     SnackbarView(
@@ -57,11 +79,33 @@ struct AppContent: View {
                 }
             }
         }.onAppear {
-            adapter.setOnEachAction { event in
+            snackbarAdapter.setOnEachAction { event in
                 self.isSnackbarVisible = false
                 self.isSnackbarVisible = true
             }
         }
+    }
+}
+
+private struct InitialScreen: View {
+    
+    let postWelcomeDestination: PostWelcomeDestination
+    
+    var body: some View {
+        
+        if postWelcomeDestination == PostWelcomeDestination.guide {
+            return AnyView(GuideScreen())
+        }
+        
+        if postWelcomeDestination == PostWelcomeDestination.login {
+            return AnyView(LoginScreen())
+        }
+        
+        if postWelcomeDestination == PostWelcomeDestination.home {
+            return AnyView(HomeScreen())
+        }
+        
+        return AnyView(Screen404())
     }
 }
 

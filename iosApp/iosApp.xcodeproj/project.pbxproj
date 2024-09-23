@@ -17,6 +17,8 @@
 		C05CB7682C9561F300B8E0E6 /* AQIAppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CB7672C9561F300B8E0E6 /* AQIAppNavigator.swift */; };
 		C05CB76A2C95625600B8E0E6 /* AppContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CB7692C95625600B8E0E6 /* AppContent.swift */; };
 		C05CB76C2C9562A600B8E0E6 /* SnackbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CB76B2C9562A600B8E0E6 /* SnackbarView.swift */; };
+		C0A873E52CA1909100C25250 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A873E42CA1909100C25250 /* LoginScreen.swift */; };
+		C0A873E82CA1917000C25250 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A873E72CA1917000C25250 /* HomeScreen.swift */; };
 		C0F3C6802C989C7300FDCA2C /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F3C67F2C989C7300FDCA2C /* WelcomeScreen.swift */; };
 		C0F3C6822C989C9400FDCA2C /* GuideScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F3C6812C989C9400FDCA2C /* GuideScreen.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +37,8 @@
 		C05CB7672C9561F300B8E0E6 /* AQIAppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIAppNavigator.swift; sourceTree = "<group>"; };
 		C05CB7692C95625600B8E0E6 /* AppContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContent.swift; sourceTree = "<group>"; };
 		C05CB76B2C9562A600B8E0E6 /* SnackbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarView.swift; sourceTree = "<group>"; };
+		C0A873E42CA1909100C25250 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		C0A873E72CA1917000C25250 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		C0F3C67F2C989C7300FDCA2C /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		C0F3C6812C989C9400FDCA2C /* GuideScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +121,8 @@
 		C05CB75D2C95609400B8E0E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C0A873E62CA1916300C25250 /* Home */,
+				C0A873E12CA1907000C25250 /* Auth */,
 				C0F3C67E2C989C6200FDCA2C /* Onboarding */,
 				C05CB75E2C95612900B8E0E6 /* Screen404.swift */,
 				C05CB7692C95625600B8E0E6 /* AppContent.swift */,
@@ -140,6 +146,22 @@
 				C05CB7672C9561F300B8E0E6 /* AQIAppNavigator.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		C0A873E12CA1907000C25250 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C0A873E42CA1909100C25250 /* LoginScreen.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C0A873E62CA1916300C25250 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C0A873E72CA1917000C25250 /* HomeScreen.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		C0F3C67E2C989C6200FDCA2C /* Onboarding */ = {
@@ -256,7 +278,9 @@
 				C05CB76A2C95625600B8E0E6 /* AppContent.swift in Sources */,
 				C05CB76C2C9562A600B8E0E6 /* SnackbarView.swift in Sources */,
 				C05CB7682C9561F300B8E0E6 /* AQIAppNavigator.swift in Sources */,
+				C0A873E82CA1917000C25250 /* HomeScreen.swift in Sources */,
 				C0F3C6822C989C9400FDCA2C /* GuideScreen.swift in Sources */,
+				C0A873E52CA1909100C25250 /* LoginScreen.swift in Sources */,
 				C05CB7632C95616B00B8E0E6 /* FlowCollector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

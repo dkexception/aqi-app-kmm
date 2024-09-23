@@ -85,7 +85,7 @@ class LoginViewModel(
                     )
 
                     // And navigate to the dashboard
-                    navigator.navigateClearingStackWithObject(HomeRoutes.HomeMain)
+                    navigator.navigateClearingStack(HomeRoutes.HomeMain)
                 }
             }
         }

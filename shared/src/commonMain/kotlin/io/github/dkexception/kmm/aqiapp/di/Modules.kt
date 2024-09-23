@@ -2,6 +2,8 @@ package io.github.dkexception.kmm.aqiapp.di
 
 import io.github.dkexception.kmm.aqiapp.data.preferences.IPreferencesHelper
 import io.github.dkexception.kmm.aqiapp.data.preferences.PreferencesHelper
+import io.github.dkexception.kmm.aqiapp.features.appcontent.AppContentViewModel
+import io.github.dkexception.kmm.aqiapp.features.appcontent.IAppContentViewModel
 import io.github.dkexception.kmm.aqiapp.features.auth.login.ILoginViewModel
 import io.github.dkexception.kmm.aqiapp.features.auth.login.LoginViewModel
 import io.github.dkexception.kmm.aqiapp.features.databank.DataBankMainViewModel
@@ -19,6 +21,7 @@ import io.github.dkexception.kmm.aqiapp.features.scale.AQIScaleViewModel
 import io.github.dkexception.kmm.aqiapp.features.scale.IAQIScaleViewModel
 import io.github.dkexception.kmm.aqiapp.snackbar.ISnackbarHelper
 import io.github.dkexception.kmm.aqiapp.snackbar.SnackbarHelper
+import io.github.dkexception.kmm.aqiapp.usecases.InitialAppNavigation
 import io.github.dkexception.kmm.aqiapp.validators.ISingleStringValidator
 import io.github.dkexception.kmm.aqiapp.validators.LoginEmailValidator
 import io.github.dkexception.kmm.aqiapp.validators.LoginPasswordValidator
@@ -44,6 +47,8 @@ val sharedModule = module {
 
     singleOf(::SnackbarHelper).bind<ISnackbarHelper>()
 
+    singleOf(::InitialAppNavigation)
+
     single<ISingleStringValidator>(named("email")) {
         LoginEmailValidator()
     }
@@ -51,6 +56,8 @@ val sharedModule = module {
     single<ISingleStringValidator>(named("password")) {
         LoginPasswordValidator()
     }
+
+    viewModelOf(::AppContentViewModel).bind<IAppContentViewModel>()
 
     viewModelOf(::WelcomeViewModel)
     viewModelOf(::GuideViewModel).bind<IGuideViewModel>()
