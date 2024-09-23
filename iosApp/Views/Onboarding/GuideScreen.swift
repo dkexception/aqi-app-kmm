@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Shared
 
 struct GuidePage {
     let title: String
@@ -16,7 +17,10 @@ struct GuidePage {
 }
 
 struct GuideScreen: View {
+    let guideViewModel: IGuideViewModel = IOSHelpers().provideGuideViewModel()
+
     let pages = [GuidePage(title: "Breath Better", imageName: "GuideScreenImage", description: "Understand the air around you, wherever you go with the largest coverage of trusted data.",imageAlignment: .leading), GuidePage(title: "Track Pollution", imageName: "GuideScreenImage", description: "Discover your personal exposure during your daily routine and take action to reduce it", imageAlignment: .center), GuidePage(title: "Controll Exposure", imageName: "GuideScreenImage", description: "During your daily routine discover your personal exposure and take action", imageAlignment: .trailing)]
+    
     var body: some View {
         TabView {
             ForEach(0..<pages.count, id: \.self) { index in
@@ -24,6 +28,7 @@ struct GuideScreen: View {
             }
             
         }.tabViewStyle(.page(indexDisplayMode: .always))
+            .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -57,6 +62,7 @@ struct PageView: View {
         }
     }
 }
+
 #Preview {
     GuideScreen()
 }

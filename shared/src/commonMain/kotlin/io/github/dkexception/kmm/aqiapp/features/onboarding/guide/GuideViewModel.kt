@@ -35,9 +35,9 @@ class GuideViewModel(
 
         // And navigate further
         if (isUserAuthenticated) {
-            navigator.navigateClearingStackWithObject(HomeRoutes.HomeMain)
+            navigator.navigateClearingStack(HomeRoutes.HomeMain)
         } else {
-            navigator.navigateWithObject(AuthRoutes.AuthLogin)
+            navigator.navigate(AuthRoutes.AuthLogin)
         }
     }
 }

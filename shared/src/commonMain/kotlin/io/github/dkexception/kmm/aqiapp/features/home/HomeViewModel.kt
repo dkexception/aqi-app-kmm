@@ -31,9 +31,9 @@ class HomeViewModel(
     override fun onEvent(homeEvent: HomeEvent) {
         when (homeEvent) {
             HomeEvent.OnPulledToRefresh -> Unit //manager.getDataByIPLocation()
-            HomeEvent.OnSettingsClicked -> navigator.navigateWithObject(MoreRoutes.MoreList)
+            HomeEvent.OnSettingsClicked -> navigator.navigate(MoreRoutes.MoreList)
             HomeEvent.OnAQICardClicked -> {
-                navigator.navigateWithObject(AQIDetailsRoutes.AQIDetails)
+                navigator.navigate(AQIDetailsRoutes.AQIDetails)
 //                navigator.navigate(
 //                    "${NavRoute.DETAILS.AQI_DETAILS}?shouldUseIPLocation=${state.value.aqiData?.isFromIPLocation ?: true}"
 //                )

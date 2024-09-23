@@ -44,7 +44,7 @@ class MoreListViewModel(
                     }
 
                     MoreListItem.FAQ -> {
-                        navigator.navigateWithObject(AQIDetailsRoutes.AQIScale)
+                        navigator.navigate(AQIDetailsRoutes.AQIScale)
                     }
 
                     MoreListItem.SETTINGS -> {
@@ -79,7 +79,7 @@ class MoreListViewModel(
 
                 if (moreListEvent.isConfirm) {
                     preferencesHelper.nuke()
-                    navigator.navigateClearingStackWithObject(OnboardingRoutes.OnboardingWelcome)
+                    navigator.navigateClearingStack(OnboardingRoutes.OnboardingWelcome)
                 }
             }
         }

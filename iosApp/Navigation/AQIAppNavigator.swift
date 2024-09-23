@@ -12,12 +12,47 @@ import Shared
 
 class AQIAppNavigator: Navigator, ObservableObject {
     
-    let isAndroid: Bool = false
-    
     @Published var path: NavigationPath = NavigationPath()
     
     init() {
         (IOSHelpers().navigator as? IOSNavigator)?.setNavigator(navigator: self)
+    }
+    
+    let isAndroid: Bool = false
+    
+    func navigate(obj: Any) {
+        DispatchQueue.main.async {
+            
+            if let hObj = obj as? (any Hashable) {
+                self.path.append(hObj)
+            }
+        }
+    }
+    
+    func navigateClearingStack(obj: Any) {
+        DispatchQueue.main.async {
+            
+            self.path.removeLast(self.path.count)
+            
+            if let hObj = obj as? (any Hashable) {
+                self.path.append(hObj)
+            }
+        }
+    }
+    
+    func navigatePoppingCurrent(obj: Any) {
+        DispatchQueue.main.async {
+            
+            self.path.removeLast(1)
+            
+            if let hObj = obj as? (any Hashable) {
+                self.path.append(hObj)
+            }
+        }
+    }
+    
+    func navigatePoppingUpto(obj: Any, popUptoObj: Any, inclusive: Bool) {
+        
     }
     
     func canGoBack() -> Bool {
@@ -34,36 +69,5 @@ class AQIAppNavigator: Navigator, ObservableObject {
         DispatchQueue.main.async {
             self.path.append(OtherRoutes.Invalid404())
         }
-    }
-    
-    func navigate(route: String) {
-        DispatchQueue.main.async {
-            self.path.append(route)
-        }
-    }
-    
-    func navigateWithObject(obj: Any) {
-        DispatchQueue.main.async {
-            self.path.append(obj as! AnyHashable)
-        }
-    }
-    
-    func navigateClearingStack(route: String) {
-        
-    }
-    
-    func navigateClearingStackWithObject(obj: Any) {
-        DispatchQueue.main.async {
-            self.path.removeLast(self.path.count)
-            self.path.append(obj as! AnyHashable)
-        }
-    }
-    
-    func navigatePoppingCurrent(route: String) {
-        
-    }
-    
-    func navigatePoppingUpto(route: String, popUptoRoute: String, inclusive: Bool) {
-        
     }
 }
