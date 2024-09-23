@@ -19,6 +19,7 @@
 		C05CB76C2C9562A600B8E0E6 /* SnackbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CB76B2C9562A600B8E0E6 /* SnackbarView.swift */; };
 		C0F3C6802C989C7300FDCA2C /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F3C67F2C989C7300FDCA2C /* WelcomeScreen.swift */; };
 		C0F3C6822C989C9400FDCA2C /* GuideScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F3C6812C989C9400FDCA2C /* GuideScreen.swift */; };
+		F7CBF78B2CA18569006073B4 /* FontExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBF78A2CA18569006073B4 /* FontExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		C05CB76B2C9562A600B8E0E6 /* SnackbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackbarView.swift; sourceTree = "<group>"; };
 		C0F3C67F2C989C7300FDCA2C /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		C0F3C6812C989C9400FDCA2C /* GuideScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideScreen.swift; sourceTree = "<group>"; };
+		F7CBF78A2CA18569006073B4 /* FontExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				C05CB75B2C95607D00B8E0E6 /* ColorExt.swift */,
+				F7CBF78A2CA18569006073B4 /* FontExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7CBF78B2CA18569006073B4 /* FontExt.swift in Sources */,
 				C05CB7652C95618300B8E0E6 /* KotlinAdapter.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				C05CB75C2C95607D00B8E0E6 /* ColorExt.swift in Sources */,
