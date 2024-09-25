@@ -9,7 +9,7 @@
 import SwiftUI
 
 extension Font {
-    static let title = Font.system(size: 28, weight: .bold)
-    static let body = Font.system(size:16, weight: .regular)
-    static let body1 = Font.system(size:14, weight: .regular)
+    static let titleF = Font.system(size: 28, weight: .bold)
+    static let bodyF = Font.system(size:16, weight: .regular)
+    static let body1F = Font.system(size:14, weight: .regular)
 }
