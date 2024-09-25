@@ -21,6 +21,8 @@
 		C0A873E82CA1917000C25250 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A873E72CA1917000C25250 /* HomeScreen.swift */; };
 		C0F3C6802C989C7300FDCA2C /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F3C67F2C989C7300FDCA2C /* WelcomeScreen.swift */; };
 		C0F3C6822C989C9400FDCA2C /* GuideScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F3C6812C989C9400FDCA2C /* GuideScreen.swift */; };
+		F7CBF78B2CA18569006073B4 /* FontExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBF78A2CA18569006073B4 /* FontExt.swift */; };
+		F7CBF7932CA2D4BF006073B4 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBF7922CA2D4BF006073B4 /* ButtonStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		C0A873E72CA1917000C25250 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		C0F3C67F2C989C7300FDCA2C /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		C0F3C6812C989C9400FDCA2C /* GuideScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideScreen.swift; sourceTree = "<group>"; };
+		F7CBF78A2CA18569006073B4 /* FontExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExt.swift; sourceTree = "<group>"; };
+		F7CBF7922CA2D4BF006073B4 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				C05CB75B2C95607D00B8E0E6 /* ColorExt.swift */,
+				F7CBF78A2CA18569006073B4 /* FontExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 				C05CB75E2C95612900B8E0E6 /* Screen404.swift */,
 				C05CB7692C95625600B8E0E6 /* AppContent.swift */,
 				C05CB76B2C9562A600B8E0E6 /* SnackbarView.swift */,
+				F7CBF7922CA2D4BF006073B4 /* ButtonStyles.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -270,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7CBF78B2CA18569006073B4 /* FontExt.swift in Sources */,
 				C05CB7652C95618300B8E0E6 /* KotlinAdapter.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				C05CB75C2C95607D00B8E0E6 /* ColorExt.swift in Sources */,
@@ -280,6 +287,7 @@
 				C05CB7682C9561F300B8E0E6 /* AQIAppNavigator.swift in Sources */,
 				C0A873E82CA1917000C25250 /* HomeScreen.swift in Sources */,
 				C0F3C6822C989C9400FDCA2C /* GuideScreen.swift in Sources */,
+				F7CBF7932CA2D4BF006073B4 /* ButtonStyles.swift in Sources */,
 				C0A873E52CA1909100C25250 /* LoginScreen.swift in Sources */,
 				C05CB7632C95616B00B8E0E6 /* FlowCollector.swift in Sources */,
 			);
