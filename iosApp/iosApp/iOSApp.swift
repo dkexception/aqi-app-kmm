@@ -16,6 +16,5 @@ struct iOSApp: App {
 }
 
 #Preview {
-    StartKoinKt.doInitKoin()
-    return AppContent()
+    AppContent()
 }
