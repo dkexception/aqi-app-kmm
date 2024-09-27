@@ -7,6 +7,10 @@ import io.github.dkexception.kmm.aqiapp.features.appcontent.AppContentViewModel
 import io.github.dkexception.kmm.aqiapp.features.appcontent.IAppContentViewModel
 import io.github.dkexception.kmm.aqiapp.features.auth.login.ILoginViewModel
 import io.github.dkexception.kmm.aqiapp.features.auth.login.LoginViewModel
+import io.github.dkexception.kmm.aqiapp.features.home.HomeViewModel
+import io.github.dkexception.kmm.aqiapp.features.home.IHomeViewModel
+import io.github.dkexception.kmm.aqiapp.features.more.IMoreListViewModel
+import io.github.dkexception.kmm.aqiapp.features.more.MoreListViewModel
 import io.github.dkexception.kmm.aqiapp.features.onboarding.guide.GuideViewModel
 import io.github.dkexception.kmm.aqiapp.features.onboarding.guide.IGuideViewModel
 import io.github.dkexception.kmm.aqiapp.navigation.Navigator
@@ -47,4 +51,8 @@ class IOSHelpers : KoinComponent {
         emailValidator = emailValidator,
         passwordValidator = passwordValidator
     )
+
+    fun provideHomeViewModel(): IHomeViewModel = HomeViewModel(preferencesHelper)
+
+    fun provideMoreListViewModel(): IMoreListViewModel = MoreListViewModel(preferencesHelper)
 }

@@ -15,12 +15,12 @@ struct WelcomeScreen: View {
         
         ZStack {
             
-            Image("welcome_bg")
+            Image("WelcomeBackground")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
             
-            Image("app_logo")
+            Image("AppLogo")
         }
     }
 }

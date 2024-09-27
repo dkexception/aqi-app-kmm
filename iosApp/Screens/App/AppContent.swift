@@ -56,6 +56,9 @@ struct AppContent: View {
                     .navigationDestination(for: HomeRoutes.HomeMain.self) { _ in
                         HomeScreen()
                     }
+                    .navigationDestination(for: MoreRoutes.MoreList.self) { _ in
+                        MoreListScreen()
+                    }
                     .navigationDestination(for: OtherRoutes.Invalid404.self) { _ in
                         Screen404()
                     }
