@@ -17,6 +17,10 @@
         android:supportsRtl="true"
         tools:targetApi="tiramisu">
 
+        <profileable
+            android:shell="true"
+            tools:targetApi="29" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />

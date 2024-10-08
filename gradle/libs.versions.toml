@@ -53,6 +53,11 @@ androidx-datastore = "1.1.1"
 junit = "4.13.2"
 androidx-espresso-core = "3.6.1"
 androidx-test-junit = "1.2.1"
+uiautomator = "2.2.0"
+
+# Benchmarking
+benchmarkMacroJunit4 = "1.3.2"
+profileinstaller = "1.4.1"
 
 [libraries]
 
@@ -111,11 +116,17 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-test-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-junit" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-espresso-core" }
 
+# Benchmarking
+androidx-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "uiautomator" }
+androidx-benchmark-macro-junit4 = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "benchmarkMacroJunit4" }
+androidx-profileinstaller = { group = "androidx.profileinstaller", name = "profileinstaller", version.ref = "profileinstaller" }
+
 [plugins]
 
 # Android
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+androidTest = { id = "com.android.test", version.ref = "agp" }
 
 # Compose
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }

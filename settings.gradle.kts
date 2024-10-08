@@ -25,6 +25,9 @@ rootProject.name = "AQIAppKMM"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-include(":composeApp")
-include(":shared")
-include(":ui")
+include(
+    ":composeApp",
+    ":shared",
+    ":ui",
+    ":benchmark"
+)
