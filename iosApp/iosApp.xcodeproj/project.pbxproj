@@ -29,6 +29,8 @@
 		C0F3C6802C989C7300FDCA2C /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F3C67F2C989C7300FDCA2C /* WelcomeScreen.swift */; };
 		C0F3C6822C989C9400FDCA2C /* GuideScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F3C6812C989C9400FDCA2C /* GuideScreen.swift */; };
 		C0F58C752CA4052100063653 /* MoreListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58C742CA4052100063653 /* MoreListScreen.swift */; };
+		F744554B2CA6D38D0028D834 /* DXNormalTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = F744554A2CA6D38D0028D834 /* DXNormalTextfield.swift */; };
+		F744554D2CA6D4EC0028D834 /* DXPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F744554C2CA6D4EC0028D834 /* DXPasswordTextField.swift */; };
 		F7CBF78B2CA18569006073B4 /* AQITypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBF78A2CA18569006073B4 /* AQITypography.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		C0F3C67F2C989C7300FDCA2C /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		C0F3C6812C989C9400FDCA2C /* GuideScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideScreen.swift; sourceTree = "<group>"; };
 		C0F58C742CA4052100063653 /* MoreListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreListScreen.swift; sourceTree = "<group>"; };
+		F744554A2CA6D38D0028D834 /* DXNormalTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DXNormalTextfield.swift; sourceTree = "<group>"; };
+		F744554C2CA6D4EC0028D834 /* DXPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DXPasswordTextField.swift; sourceTree = "<group>"; };
 		F7CBF78A2CA18569006073B4 /* AQITypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQITypography.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +243,7 @@
 		C0EEFC6A2CA6B53B00149CBA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F74455492CA6D3660028D834 /* TextFields */,
 				C0EEFC702CA6BE3D00149CBA /* Dividers */,
 				C0EEFC6B2CA6B54200149CBA /* Buttons */,
 				C0EEFC5A2CA68F2700149CBA /* Theme */,
@@ -278,6 +283,15 @@
 				C0F58C742CA4052100063653 /* MoreListScreen.swift */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		F74455492CA6D3660028D834 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				F744554A2CA6D38D0028D834 /* DXNormalTextfield.swift */,
+				F744554C2CA6D4EC0028D834 /* DXPasswordTextField.swift */,
+			);
+			path = TextFields;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,9 +395,11 @@
 				C0EEFC6F2CA6B8B600149CBA /* DXTextButton.swift in Sources */,
 				C05CB7652C95618300B8E0E6 /* KotlinAdapter.swift in Sources */,
 				C0EEFC682CA6B40C00149CBA /* Accent.swift in Sources */,
+				F744554B2CA6D38D0028D834 /* DXNormalTextfield.swift in Sources */,
 				C0EEFC6D2CA6B55C00149CBA /* DXPrimaryButton.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				C05CB75C2C95607D00B8E0E6 /* ColorExt.swift in Sources */,
+				F744554D2CA6D4EC0028D834 /* DXPasswordTextField.swift in Sources */,
 				C0F3C6802C989C7300FDCA2C /* WelcomeScreen.swift in Sources */,
 				C05CB75F2C95612900B8E0E6 /* Screen404.swift in Sources */,
 				C05CB76A2C95625600B8E0E6 /* AppContent.swift in Sources */,
